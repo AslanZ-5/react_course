@@ -1,27 +1,17 @@
 import React, {useState} from "react";
 import Counter from "./components/Counter";
 import ClassCounter from "./components/ClassCounter";
+import PostItem from "./components/PostItem";
+import "./styles/App.css"
 function App() {
-  const [likes,setLikes] = useState(0)
-  const [value,setValues] = useState('the text')
-  function increment(){
-    setLikes(likes + 1)
-  }
-  function decrement(){
-    setLikes(likes - 1)
-  }
+  
   return (
     <div className="App">
-      <h2>likes:{likes}</h2>
-      <h2>{value}</h2>
-      <input onChange={event => setValues(event.target.value)} value={value}></input>
-      <button onClick={increment}>increment</button>
-      <button onClick={decrement}>decrement</button>
-      <Counter/>
-      <ClassCounter/>
-      <ClassCounter/>
-      <ClassCounter/>
-      <ClassCounter/>
+      <PostItem post={{id:1,title:"javascript", body:"this text is about JavaScript"}}/>
+      <PostItem post={{id:2,title:"Python-Django", body:"this text is about Python-Django"}}/>
+      <PostItem post={{id:3,title:"Mysql", body:"this text is about Mysql"}}/>
+      <PostItem post={{id:4,title:"Django Rest Framework", body:"this text is about Django Rest"}}/>
+     
     </div>
     
   );
