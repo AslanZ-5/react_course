@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Counter from "./components/Counter";
-
+import ClassCounter from "./components/ClassCounter";
 function App() {
   const [likes,setLikes] = useState(0)
   const [value,setValues] = useState('the text')
@@ -18,6 +18,10 @@ function App() {
       <button onClick={increment}>increment</button>
       <button onClick={decrement}>decrement</button>
       <Counter/>
+      <ClassCounter/>
+      <ClassCounter/>
+      <ClassCounter/>
+      <ClassCounter/>
     </div>
     
   );
