@@ -3,6 +3,7 @@ import Counter from "./components/Counter";
 import ClassCounter from "./components/ClassCounter";
 import PostItem from "./components/PostItem";
 import Mybutton from "./components/UI/button/MyButton";
+import Myinput from "./components/UI/input/Myinput";
 import "./styles/App.css"
 import PostList from "./components/PostList";
 function App() {
@@ -16,8 +17,8 @@ function App() {
   return (
     <div className="App">
       <form>
-        <input type="text" placeholder="post title"/>
-        <input type="text" placeholder="post description"/>
+        <Myinput type="text" placeholder="post title"/>
+        <Myinput type="text" placeholder="post description"/>
         <Mybutton disabled> Create Post</Mybutton>
       </form>
       <PostList props={posts} title={"Languages Posts"}/>
