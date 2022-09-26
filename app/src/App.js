@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import Counter from "./components/Counter";
 import ClassCounter from "./components/ClassCounter";
 import PostItem from "./components/PostItem";
@@ -15,21 +15,22 @@ function App() {
   ])
 
   const [title, setTitle] = useState('ttt')
-  
+  const inputRef = useRef() 
   const addNewPost = (e) => {
     e.preventDefault()
-    console.log(title)
+    console.log(inputRef.current.value)
   }
   return (
     <div className="App">
       <form>
         <Myinput  
+        
         type="text"
         placeholder="post title"
         value={title}
         onChange={e => setTitle(e.target.value)}
          />
-        <Myinput type="text" placeholder="post description"/>
+        <Myinput ref={inputRef} type="text" placeholder="post description"/>
         <Mybutton onClick={addNewPost} > Create Post</Mybutton>
       </form>
       <PostList props={posts} title={"Languages Posts"}/>
