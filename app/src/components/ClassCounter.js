@@ -10,12 +10,9 @@ class ClassCounter extends React.Component {
         this.decrement = this.decrement.bind(this)
     }
     increment(){
-        console.log('increment')
         this.setState({count: this.state.count + 1})
-        console.log(this.count)
     }
     decrement(){
-        console.log('decrement')
         this.setState({count: this.state.count - 1})
     }
     render() {

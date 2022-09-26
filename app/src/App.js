@@ -13,13 +13,24 @@ function App() {
     {id:3,title:"Mysql", body:"this text is about Mysql"},
     {id:4,title:"Django Rest Framework", body:"this text is about Django Rest"}
   ])
+
+  const [title, setTitle] = useState('ttt')
   
+  const addNewPost = (e) => {
+    e.preventDefault()
+    console.log(title)
+  }
   return (
     <div className="App">
       <form>
-        <Myinput type="text" placeholder="post title"/>
+        <Myinput  
+        type="text"
+        placeholder="post title"
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+         />
         <Myinput type="text" placeholder="post description"/>
-        <Mybutton disabled> Create Post</Mybutton>
+        <Mybutton onClick={addNewPost} > Create Post</Mybutton>
       </form>
       <PostList props={posts} title={"Languages Posts"}/>
 

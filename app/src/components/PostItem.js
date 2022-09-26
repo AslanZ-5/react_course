@@ -1,5 +1,4 @@
 const PostItem = function(props){
-    console.log(props)
     return (
         <div className="post">
       <div className="post-content">
