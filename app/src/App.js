@@ -18,13 +18,20 @@ function App() {
     setPosts([...posts, newPost])
   }
 
+  const removePost = (post) => {
+    setPosts(posts.filter(p => p.id !== post.id))
+  }
+
   
  
  
   return (
     <div className="App">
       <PostForm create={createPost}/>
-      <PostList props={posts} title={"Languages Posts"}/>
+      {posts.length !== 0
+          ?       <PostList remove={removePost} props={posts} title={"Languages Posts"}/>
+          :<h1 style={{textAlign: 'center'}}> Posts hasn't been found</h1>
+        }
 
      
     </div>
