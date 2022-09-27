@@ -7,6 +7,7 @@ import Myinput from "./components/UI/input/Myinput";
 import PostForm from "./components/PostForm";
 import "./styles/App.css"
 import PostList from "./components/PostList";
+import MySelect from "./components/UI/select/MySelect";
 function App() {
   const [posts, setPosts] = useState([
     {id:1,title:"javascript", body:"this text is about JavaScript"},
@@ -27,7 +28,17 @@ function App() {
  
   return (
     <div className="App">
+     
       <PostForm create={createPost}/>
+      <div>
+        <MySelect 
+        defaultValue="Sort"
+        options={[
+          {value:"title", name: 'By Title'},
+          {value:"body", name:"By description"}
+        ]}
+        />
+        </div>
       {posts.length !== 0
           ?       <PostList remove={removePost} props={posts} title={"Languages Posts"}/>
           :<h1 style={{textAlign: 'center'}}> Posts hasn't been found</h1>
