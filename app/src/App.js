@@ -7,18 +7,22 @@ import Myinput from "./components/UI/input/Myinput";
 import "./styles/App.css"
 import PostList from "./components/PostList";
 function App() {
-  const [posts, setPost] = useState([
+  const [posts, setPosts] = useState([
     {id:1,title:"javascript", body:"this text is about JavaScript"},
     {id:2,title:"Python-Django", body:"this text is about Python-Django"},
     {id:3,title:"Mysql", body:"this text is about Mysql"},
     {id:4,title:"Django Rest Framework", body:"this text is about Django Rest"}
   ])
 
-  const [title, setTitle] = useState('ttt')
-  const inputRef = useRef() 
+  const [post, setPost] = useState({title:'',body:''})
+  
+ 
   const addNewPost = (e) => {
     e.preventDefault()
-    console.log(inputRef.current.value)
+    setPosts([...posts, {...post, id:Date.now()}])
+    
+    setPost({title:'',body:''})
+   
   }
   return (
     <div className="App">
@@ -27,10 +31,17 @@ function App() {
         
         type="text"
         placeholder="post title"
-        value={title}
-        onChange={e => setTitle(e.target.value)}
+        value={post.title}
+        onChange={e => setPost({...post,title:e.target.value})}
          />
-        <Myinput ref={inputRef} type="text" placeholder="post description"/>
+        <Myinput 
+        
+         type="text" 
+         placeholder="post description"
+         value={post.body}
+         onChange={e => setPost({...post,body:e.target.value})}
+
+         />
         <Mybutton onClick={addNewPost} > Create Post</Mybutton>
       </form>
       <PostList props={posts} title={"Languages Posts"}/>
